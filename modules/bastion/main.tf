@@ -9,6 +9,13 @@ resource "aws_security_group" "bastion" {
     cidr_blocks = ["${var.allowed_networks}"]
   }
 
+  ingress {
+    from_port   = 993 
+    to_port     = 993
+    protocol    = "tcp"
+    cidr_blocks = ["${var.allowed_networks}"]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
